@@ -9,7 +9,7 @@ import Editor from "./components/Editor";
 function App() {
   return (
     <div className='App'>
-			<h1>Hello</h1>
+      <h1>Hello</h1>
       <Router>
         <Switch>
           <Route path='/' exact>
