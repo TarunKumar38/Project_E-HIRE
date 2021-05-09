@@ -41,7 +41,8 @@ int main() {
     });
 
     socketRef.current.on("recieve-output", (body) => {
-      socketRef.current.emit("outputChanged", body["output"]);
+      const output = body["output"];
+      socketRef.current.emit("outputChanged", [output, roomId]);
       setOutput(body["output"]);
     });
 
@@ -49,12 +50,13 @@ int main() {
   }, [code, output]);
 
   const codeChanged = (code) => {
-    socketRef.current.emit("codeChanged", code);
+    socketRef.current.emit("codeChanged", [code, roomId]);
     setCode(code);
   };
 
   const inputChanged = (event) => {
-    socketRef.current.emit("inputChanged", event.target.value);
+    const val = event.target.value;
+    socketRef.current.emit("inputChanged", [val, roomId]);
     setInput(event.target.value);
   };
 
@@ -71,7 +73,7 @@ int main() {
       versionIndex: "3",
       stdin: input,
     };
-    socketRef.current.emit("submit-code", body);
+    socketRef.current.emit("submit-code", [body, roomId]);
   };
 
   return (
