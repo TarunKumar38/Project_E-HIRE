@@ -1,0 +1,8 @@
+.editor {
+  width: 70%;
+  margin: 5px;
+}
+.code-editor {
+  display: flex;
+  justify-content: center;
+}

@@ -5,11 +5,12 @@ import Home from "./components/Home";
 import Join from "./components/Join";
 import Create from "./components/Create";
 import Editor from "./components/Editor";
+import NewVideo from "./components/NewVideo";
 
 function App() {
   return (
     <div className='App'>
-      <h1>Hello</h1>
+      <p>Hello</p>
       <Router>
         <Switch>
           <Route path='/' exact>
@@ -22,7 +23,14 @@ function App() {
             <Create />
           </Route>
           <Route path='/:id'>
-            <Editor />
+            <div className='video-editor'>
+              <div className='editor'>
+                <Editor />
+              </div>
+              <div className='newvideo'>
+                <NewVideo />
+              </div>
+            </div>
           </Route>
         </Switch>
       </Router>

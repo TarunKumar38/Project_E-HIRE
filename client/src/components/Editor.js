@@ -4,6 +4,8 @@ import io from "socket.io-client";
 import AceEditor from "react-ace";
 import "ace-builds/src-noconflict/mode-csharp";
 import "ace-builds/src-noconflict/theme-tomorrow";
+import "ace-builds/src-noconflict/theme-monokai";
+import "../css/Editor.css";
 
 function Editor() {
   const { id: roomId } = useParams();
@@ -78,15 +80,15 @@ int main() {
 
   return (
     <div>
-      Editor
+      <p>Editor</p>
       <div className='editor'>
         <div className='code-editor'>
           <AceEditor
             mode='csharp'
-            theme='tomorrow'
-            fontSize={20}
-            height='300px'
-            width='500px'
+            theme='monokai'
+            fontSize={16}
+            height='400px'
+            width='800px'
             value={code}
             onChange={codeChanged}
             showPrintMargin={true}
